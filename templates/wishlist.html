@@ -1,0 +1,24 @@
+{% extends "base_code.html" %}
+{% block content %}
+    <div class="row">
+        {% for m in items %}
+            <div class="card text-white bg-dark " style="width: 15rem;">
+                <img src="https://image.tmdb.org/t/p/w200{{ m.poster_path }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    {% if not m.name %}
+                        <h5 class="card-title">{{ m.title }}</h5>
+                    {% else %}
+                        <h5 class="card-title">{{ m.name }}</h5>
+                    {% endif %}
+
+
+
+                    <a href="/movie_details/{{ m.id }}/" class="btn btn-primary">View Details</a>
+{#                    <a href="wishlist/" class="btn btn-primary">Delete from Wishlist</a>#}
+{#                <a href="add_to_wishlist/" class="btn btn-primary">Add to Wishlist</a>#}
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
