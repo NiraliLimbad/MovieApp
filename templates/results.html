@@ -14,9 +14,8 @@
                     {% endif %}
                     <p class="card-text">Released: {{ m.release_date }}</p>
 {#                Nirali's Edit#}
-                    <a href="#" class="btn btn-primary">Add to Wishlist</a>
                     <a href="/{{ type }}/{{ m.id }}/" class="btn btn-primary">View Details</a>
-                    <a href="/{{ type }}/{{ m.id }}/" class="btn btn-primary">Add to Wishlist</a>
+                    <a href="{{ m.id }}/add_to_wishlist/" class="btn btn-primary">Add to Wishlist</a>
 
                 </div>
             </div>

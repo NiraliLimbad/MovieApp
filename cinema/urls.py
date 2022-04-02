@@ -35,6 +35,8 @@ urlpatterns = [
 
                # ------------------------------
  path('top_rated/',views.top_rated,name='top_rated'),
+ path('top_rated/<int:movie_id>/add_to_wishlist/', views.add_to_wishlist, name='add_to_wishlist'),
+ path('now_playing/<int:movie_id>/add_to_wishlist/',views.add_to_wishlist, name='add_to_wishlist'),
 
  ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
