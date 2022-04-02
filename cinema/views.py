@@ -17,33 +17,43 @@ class Movies(View):
     type = "movie"
     time_window = "day"
     header = "Top results of the Day "
+    currentPage = "home"
 
     def get(self, request):
         trendings = requests.get(
             f"https://api.themoviedb.org/3/trending/{self.type}/{self.time_window}?api_key={TMDB_API_KEY}&language=en-US")
         return render(request, '../templates/movies_list.html', {"data": trendings.json(), "type": "movie_details",
-                                                                 "header": self.header})
+                                                                 "header": self.header,
+                                                                 "currentPage": self.currentPage})
+
 
 class Trending(Movies):
     # movie_list = Movies.objects.all().order_by('-release_date')[:10]
     type = "movie"
     time_window = "week"
     header = "Trending movies of the week "
+    currentPage = "trending"
+
 
 def now_playing(request):
+    currentPage = "nowplaying"
     data = requests.get(
         f"https://api.themoviedb.org/3/movie/now_playing?api_key={TMDB_API_KEY}")
     return render(request, '../templates/results.html', {
         "data": data.json(),
         "type": "movie_details",
+        "currentPage": currentPage
     })
 
+
 def top_rated(request):
+    currentPage = "toprated"
     data = requests.get(
         f"https://api.themoviedb.org/3/movie/top_rated?api_key={TMDB_API_KEY}&language=en-US")
     return render(request, '../templates/results.html', {
         "data": data.json(),
         "type": "movie_details",
+        "currentPage": currentPage
     })
 @login_required(login_url='/signin/')
 def wishlist(request):
