@@ -30,7 +30,7 @@ urlpatterns = [
  # path('/movie_details/<int:movie_id>/templates/wishlist/',views.wishlist,name='wishlist'),
 
  # path('movie_details/<int:movie_id>/wishlist/',views.wishlist,name='wishlist'),
- path('movie_details/<int:movie_id>/delete_from_wishlist/', views.delete_from_wishlist, name='delete_from_wishlist'),
+ path('wishlist/<int:movie_id>/delete_from_wishlist/', views.delete_from_wishlist, name='delete_from_wishlist'),
  path('movie_details/<int:movie_id>/add_to_wishlist/', views.add_to_wishlist, name='add_to_wishlist'),
 
                # ------------------------------

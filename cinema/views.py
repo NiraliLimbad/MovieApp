@@ -82,11 +82,11 @@ def delete_from_wishlist(request, movie_id):
     if movie_id:
         # WishList.objects.create(movie_id=movie_id,user=request.user).save()
         WishList.objects.filter(movie_id=movie_id,user=request.user).delete()
-    data = requests.get(f"https://api.themoviedb.org/3/movie/{movie_id}?api_key={TMDB_API_KEY}&language=en-US")
-    return render(request, "../templates/add_to_wishlist.html", {
-        "data": data.json(),
-        "type": "movie_details",
-    })
+    # data = requests.get(f"https://api.themoviedb.org/3/movie/{movie_id}?api_key={TMDB_API_KEY}&language=en-US")
+    # return render(request, "../templates/add_to_wishlist.html", {
+    #     "data": data.json(),
+    #     "type": "movie_details",
+    return redirect("/wishlist/")
 
 
 def movie_details(request, movie_id):
