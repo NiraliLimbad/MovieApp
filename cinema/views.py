@@ -59,7 +59,7 @@ def top_rated(request):
 def wishlist(request):
     # data = requests.get(f"https://api.themoviedb.org/3/movie/{movie_id}?api_key={TMDB_API_KEY}&language=en-US")
     # title = data.json()["title"]
-
+    currentPage="wishlist"
     items = reversed(WishList.objects.filter(user_id=request.user))
     print(items)
     res=[]
@@ -71,6 +71,7 @@ def wishlist(request):
     return render(request, '../templates/wishlist.html', {
         "title": "test",
         "items": res,
+        "currentPage":currentPage
     })
     # return render(request, '../templates/add_to_wishlist.html')
 @login_required(login_url='/signin/')
