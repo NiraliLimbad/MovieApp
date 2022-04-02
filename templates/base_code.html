@@ -26,10 +26,10 @@
                     <a class="nav-link {% if currentPage == "nowplaying" %}active{% endif %}" href="/now_playing/">Now Playing</a>
                 </li>
                 <li class="nav-item px-2">
-                    <a class="nav-link" href="/top_rated/">Top Rated</a>
+                    <a class="nav-link {% if currentPage == "toprated" %}active{% endif %}" href="/top_rated/">Top Rated</a>
                 </li>
                 <li class="nav-item px-2">
-                    <a class="nav-link" href="/posters/">User uploaded Movies</a>
+                    <a class="nav-link {% if currentPage == "posters" %}active{% endif %}" href="/posters/">User uploaded Movies</a>
                 </li>
                 <form class="d-flex" action="/search/" method="get" class="row g-3">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
@@ -38,7 +38,7 @@
 
                 {% if not request.user.username %}
                     <li class="nav-item px-5">
-                        <a class="nav-link" href="/signin/"><strong>Sign In</strong></a>
+                        <a class="nav-link {% if currentPage == "signin" %}active{% endif %}" href="/signin/"><strong>Sign In</strong></a>
                     </li>
 
                 {% else %}

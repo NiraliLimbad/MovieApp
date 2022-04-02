@@ -140,13 +140,14 @@ def signup(request):
             user = User.objects.create_user(filled_form.cleaned_data['name'], filled_form.cleaned_data['email'],
                                             filled_form.cleaned_data['password'])
             login(request, user)
-            return HttpResponse("success")
+            return redirect('/')
     else:
         new = SignupForm()
         return render(request, '../templates/Signup.html', {'SignupForm': new})
 
 
 def signin(request):
+    currentPage="signin"
     msg = ''
     if request.method == "POST":
         filled_form = SigninForm(request.POST)
@@ -161,12 +162,13 @@ def signin(request):
             else:
                 msg = 'Wrong Combo. Try Again !!'
     new = SigninForm()
-    return render(request, '../templates/Signin.html', {'SigninForm': new, 'msg': msg})
+    return render(request, '../templates/Signin.html', {'SigninForm': new, 'msg': msg, "currentPage":currentPage})
 
 
 def signout(request):
+    currentPage = "signout"
     logout(request)
-    return render(request, '../templates/Signout.html')
+    return render(request, '../templates/Signout.html',{"currentPage":currentPage})
 
 
 def comments(request, movie_id):
@@ -199,6 +201,8 @@ def comments(request, movie_id):
 
 
 def posters(request):
+
+    currentPage = "posters"
     if request.method == "POST":
         user = request.user
         if not request.user.is_authenticated:
@@ -217,7 +221,9 @@ def posters(request):
             return redirect(f"../posters/")
     posters = reversed(poster.objects.all())
     return render(request, "../templates/posters.html", {
-        "posters": posters, })
+        "posters": posters,
+        "currentPage":currentPage
+    })
 
 
 @login_required(login_url='/signin/')
