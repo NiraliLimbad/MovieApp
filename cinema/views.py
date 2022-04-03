@@ -33,7 +33,7 @@ class Trending(Movies):
     # movie_list = Movies.objects.all().order_by('-release_date')[:10]
     type = "movie"
     time_window = "week"
-    header = "Trending movies of the week "
+    header = ""
     currentPage = "trending"
 
 
