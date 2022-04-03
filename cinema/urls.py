@@ -25,19 +25,10 @@ urlpatterns = [
  path('passwordsent/', Pwdsentconfirm.as_view()),
  path('passwordchanged/', Pwdchangeconfirm.as_view()),
  path('now_playing/',views.now_playing,name='now_playing'),
- # -----------------
  path('wishlist/',views.wishlist,name='wishlist'),
- # path('/movie_details/<int:movie_id>/templates/wishlist/',views.wishlist,name='wishlist'),
-
- # path('movie_details/<int:movie_id>/wishlist/',views.wishlist,name='wishlist'),
  path('wishlist/<int:movie_id>/delete_from_wishlist/', views.delete_from_wishlist, name='delete_from_wishlist'),
  path('movie_details/<int:movie_id>/add_to_wishlist/', views.add_to_wishlist, name='add_to_wishlist'),
-
-               # ------------------------------
  path('top_rated/',views.top_rated,name='top_rated'),
- path('top_rated/<int:movie_id>/add_to_wishlist/', views.add_to_wishlist, name='add_to_wishlist'),
- path('now_playing/<int:movie_id>/add_to_wishlist/',views.add_to_wishlist, name='add_to_wishlist'),
-
  ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()
