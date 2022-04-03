@@ -2,6 +2,57 @@
 
 
 {% block content %}
+
+    <style>
+
+            .btn-grad {
+                background-image: linear-gradient(to right, #e52d27 0%, #b31217 51%, #e52d27 100%)
+            }
+
+            .btn-grad {
+                margin: 10px;
+                padding: 7px 1px;
+                text-align: center;
+                text-transform: uppercase;
+                transition: 0.5s;
+                background-size: 200% auto;
+                color: white;
+                /* box-shadow: 0 0 20px #eee; */
+                border-radius: 10px;
+                display: block;
+            }
+
+            .btn-grad:hover {
+                background-position: right center; /* change the direction of the change here */
+                color: #fff;
+                text-decoration: none;
+            }
+
+            .movie-description {
+                flex: 1 1 auto;
+                padding: 1rem 1rem;
+                position: absolute;
+                bottom: 0;
+                background-image: linear-gradient(rgba(255, 0, 0, 0), rgb(0 0 0));
+                width: 100%;
+            }
+
+            .card:hover {
+                transform: scale(1.2);
+                transition: all 0.25s;
+                z-index: 99999;
+            }
+
+            .card-img-top {
+                object-fit: cover;
+            }
+
+            .movie-item {
+                padding: 0;
+                margin: 10px;
+            }
+        </style>
+
     <h1>User maintained Posters </h1>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
@@ -12,7 +63,7 @@
         <div class="input-group mb-1">
             <input type="file" class="form-control" id="image" name="image">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-grad" style="width:300px; margin-left: 0; margin-top: 20px">Submit</button>
     </form>
     <hr>
     <div class="container my-0 py-0">
