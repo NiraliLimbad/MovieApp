@@ -1,10 +1,15 @@
 {% extends "base_code.html" %}
 {% block content %}
+    {% load static %}
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+    </head>
+
     <div class="row">
         <style>
 
             .btn-grad {
-                background-image: linear-gradient(to right, #e52d27 0%, #b31217 51%, #e52d27 100%)
+                 background-image: linear-gradient(to right, #ab0303 0%, #190A05  51%, #a90303 100%)
             }
 
             .btn-grad {
@@ -17,7 +22,7 @@
                 color: white;
                 /* box-shadow: 0 0 20px #eee; */
                 border-radius: 10px;
-                display: block;
+                {#display: block;#}
             }
 
             .btn-grad:hover {
@@ -50,18 +55,19 @@
                 margin: 10px;
             }
         </style>
-        <h1> {{ header }}</h1>
+        <h1 style="font-family: 'Yu Gothic UI Semibold'"> {{ header }}</h1>
         {% for m in data.results %}
-            <div class="card text-white bg-dark mb-3 movie-item" style="width: 15rem;">
-                <img src="https://image.tmdb.org/t/p/w200{{ m.poster_path }}" class="card-img-top" alt="...">
+{#            <div class="card text-white bg-dark mb-3 movie-item" style="width: 15rem;">#}
+            <div class="card text-white bg-black mb-3 movie-item" style="width: 13rem; margin-left: 30px">
+                <a href="/{{ type }}/{{ m.id }}/" class="btn btn-grad"><img src="https://image.tmdb.org/t/p/w200{{ m.poster_path }}" class="card-img-top" alt="..." ></a>
                 <div class="card-body movie-description">
-                    {% if not m.name %}
-                        <h5 class="card-title">{{ m.title }}</h5>
-                    {% else %}
-                        <h5 class="card-title">{{ m.name }}</h5>
-                    {% endif %}
-                    <p class="card-text">Released: {{ m.release_date }}</p>
-                    <a href="/{{ type }}/{{ m.id }}/" class="btn btn-grad">View Details</a>
+{#                    {% if not m.name %}#}
+{#                        <h5 class="card-title">{{ m.title }}</h5>#}
+{#                    {% else %}#}
+{#                        <h5 class="card-title">{{ m.name }}</h5>#}
+{#                    {% endif %}#}
+{#                    <p class="card-text" style="font-family: 'Yu Gothic UI'; text-align: center">Released: {{ m.release_date }}</p>#}
+{#                    <a href="/{{ type }}/{{ m.id }}/" class="btn btn-grad">View Details</a>#}
                 </div>
             </div>
         {% endfor %}
