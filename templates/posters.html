@@ -80,6 +80,7 @@
                     <p class="card-text">Uploaded By: {{ m.uploader }}</p>
                     <p class="card-text">On {{ m.created_at }}</p>
                 </div>
+                <a href="/delete_poster/{{ m.image_id }}" class="btn btn-grad">Delete</a>
             </div>
         {% endfor %}
     </div>

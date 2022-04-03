@@ -29,6 +29,7 @@ urlpatterns = [
  path('wishlist/<int:movie_id>/delete_from_wishlist/', views.delete_from_wishlist, name='delete_from_wishlist'),
  path('movie_details/<int:movie_id>/add_to_wishlist/', views.add_to_wishlist, name='add_to_wishlist'),
  path('top_rated/',views.top_rated,name='top_rated'),
+ path('delete_poster/<int:image_id>/',views.delete_poster,name='delete_poster'),
  ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()

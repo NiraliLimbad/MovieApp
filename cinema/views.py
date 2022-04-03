@@ -1,3 +1,5 @@
+import random
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import comment, poster, order,WishList
@@ -218,6 +220,7 @@ def posters(request):
                 photo = form.save(commit=False)
                 photo.uploader = user
                 # now we can save
+                photo.image_id=random.randint(0,100000)
                 photo.save()
             return redirect(f"../posters/")
     posters = reversed(poster.objects.all())
@@ -226,6 +229,11 @@ def posters(request):
         "currentPage":currentPage
     })
 
+def delete_poster(request, image_id):
+    # Poster ID
+    if image_id:
+        poster.objects.filter(image_id=image_id,uploader=request.user).delete()
+    return redirect("/posters/")
 
 @login_required(login_url='/signin/')
 def buy(request, movie_id):

@@ -30,6 +30,7 @@ def __str__(self):
 
 
 class poster(models.Model):
+    image_id = models.IntegerField(default=-1)
     image = models.ImageField(upload_to='images/')
     title = models.CharField(max_length=128, blank=True)
     uploader = models.ForeignKey('auth.User', on_delete=models.CASCADE)
