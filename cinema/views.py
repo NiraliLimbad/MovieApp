@@ -173,6 +173,7 @@ def signup(request):
     new = SignupForm()
     return render(request, '../templates/Signup.html', {'SignupForm': new, 'msg': msg})
 
+
 def signin(request):
     currentPage = "signin"
     msg = ''

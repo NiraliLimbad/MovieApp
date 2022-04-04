@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('cinema', '0003_remove_poster_id_poster_image_id'),
     ]
@@ -13,7 +12,8 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='poster',
             name='id',
-            field=models.BigAutoField(auto_created=True, default=-1, primary_key=True, serialize=False, verbose_name='ID'),
+            field=models.BigAutoField(auto_created=True, default=-1, primary_key=True, serialize=False,
+                                      verbose_name='ID'),
             preserve_default=False,
         ),
         migrations.AlterField(
