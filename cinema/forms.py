@@ -2,11 +2,12 @@ from django import forms
 from . import models
 
 
+
 class SignupForm(forms.Form):
     name = forms.CharField(max_length=20)
     email = forms.EmailField()
     password = forms.CharField(max_length=10)
-
+    confirmpassword = forms.CharField(max_length=10)
 
 class SigninForm(forms.Form):
     name = forms.CharField(max_length=20)
