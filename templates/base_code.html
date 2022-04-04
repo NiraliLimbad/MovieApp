@@ -14,7 +14,7 @@
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark bg-black ">
     <div class="container-fluid">
-        <a class="navbar-brand text-white bg-black" href="#" style="font-family:Jokerman; font-size: 25px;">CineWorld</a>
+        <a class="navbar-brand text-white bg-black" href="/" style="font-family:Jokerman; font-size: 25px;">CineWorld</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -80,6 +80,8 @@
 </nav>
 <body>
 <div class="p-3 mb-2 bg-black text-white">
+<div class="text-end">
+    <a href="/recently_browsed/" class="link-danger"> Recently Browsed </a></div>
     {% block content %}{% endblock %}
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
