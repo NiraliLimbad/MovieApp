@@ -9,7 +9,7 @@ from .views import Pwdchangeconfirm, Pwdsentconfirm, Movies, Trending
 app_name = 'cinema'
 
 urlpatterns = [
-                  path('', Movies.as_view()),
+                  path('', Movies.as_view()),  # parent class of all views
                   path('movie_details/<movie_id>/', views.movie_details, name='movie_details'),
                   path('search/', views.search, name='search'),
                   path('signup/', views.signup, name='signup'),
